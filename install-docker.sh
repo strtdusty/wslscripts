@@ -16,7 +16,7 @@ sudo apt-get install \
 
 #Add Docker’s official GPG key if it the docker.gpg file does not exist
 if [ ! -f /etc/apt/keyrings/docker.gpg ]; then
-    printf '${GREEN}Adding docker gpg key...${NC}\n'
+    printf "${GREEN}Adding docker gpg key...${NC}\n"
     #Create the keyrings directory if it does not exist
     if [ ! -d /etc/apt/keyrings ]; then
         sudo mkdir -p /etc/apt/keyrings
@@ -26,7 +26,7 @@ fi
 
 #Add Docker apt repository if it does not exist
 if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
-    printf '${GREEN}Adding docker apt repository...${NC}\n'
+    printf "${GREEN}Adding docker apt repository...${NC}\n"
     #Create the sources.list.d directory if it does not exist
     if [ ! -d /etc/apt/sources.list.d ]; then
         sudo mkdir -p /etc/apt/sources.list.
@@ -47,7 +47,7 @@ sudo usermod -aG docker $USER
 #Add a command to start docker in the /etc/wsl.conf file if it does not exist inside the file using sed
 #This will ensure that docker is started everytime the WSL is started
 if ! grep "command=" /etc/wsl.conf; then
-    printf '${GREEN}Setting docker to start automatically...${NC}\n'
+    printf "${GREEN}Setting docker to start automatically...${NC}\n"
     echo 'command= service docker start' | sudo tee -a /etc/wsl.conf > /dev/null
 fi
 
